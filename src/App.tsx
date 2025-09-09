@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import AttackMap from './components/AttackMap';
+// import AttackMap from './components/AttackMap';
 import AttackMapSimple from './components/AttackMapSimple';
 import StatisticsPanel from './components/StatisticsPanel';
 import { useWebSocket } from './hooks/useWebSocket';
@@ -99,7 +99,7 @@ const Pulse = styled.div`
 
 function App() {
   const { attacks, isConnected, lastUpdate, error, stats } = useWebSocket({
-    url: 'ws://localhost:3001',
+    url: process.env.REACT_APP_WEBSOCKET_URL,
     reconnectInterval: 3000,
     maxReconnectAttempts: 10
   });
